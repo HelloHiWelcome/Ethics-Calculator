@@ -34,3 +34,39 @@ flowchart TD
     classDef good fill:#d5f5e3,stroke:#1e8449,stroke-width:1px;
     classDef bad fill:#f9e0e0,stroke:#c0392b,stroke-width:1px;
 
+
+> In GitHub, you just keep the triple backticks; it’ll render as a neat diagram.
+
+---
+
+### 3. If you want a slide version
+
+If you’re doing this in **PowerPoint** or **draw.io**, use these boxes:
+
+**Training side (left):**
+
+1. “Define ethics principles (IEEE + Harvard)”  
+2. “Create ~600 synthetic scenarios”  
+3. “Label each: principles + verdict”  
+4. “Vectorize text (TF-IDF)”  
+5. Two parallel boxes:
+   - “Train multi-label *principle* classifier”  
+   - “Train *verdict* classifier (ethical / ambiguous / unethical)”  
+6. “EthicsClassifier (trained model)”
+
+**Runtime side (right):**
+
+1. “User types scenario”  
+2. “Vectorize with TF-IDF”  
+3. “Predict principles + verdict”  
+4. Decision diamond: “Verdict?”  
+   - Arrow to: “Show verdict only (ethical / ambiguous)”  
+   - Arrow to: “Show verdict + violated IEEE-style principles (unethical)”
+
+---
+
+If you want, next step I can:
+
+- tweak the wording on the boxes to sound *extra* academic, or  
+- write a tiny caption you can put under the flowchart in your report / README.
+::contentReference[oaicite:0]{index=0}
