@@ -12,61 +12,21 @@ Technically, the project uses a lightweight scikit-learn pipeline (text vectoriz
 
 Running the script trains the classifier from scratch on the full labeled dataset and then drops the user into a simple CLI: you describe any AI or robotics scenario in plain language, and the system responds with its current best guess at the overall ethical verdict.
 
-```mermaid
 flowchart TD
-    %% TRAINING PIPELINE
-    A[Define ethics principles<br/>(IEEE + Harvard Embedded Ethics)] --> B[Create ~600 labeled scenarios]
-    B --> C[Label each scenario<br/>with principles + verdict]
-    C --> D[Vectorize text<br/>(TF-IDF)]
-    D --> E[Train multi-label<br/>principle classifier]
-    D --> F[Train single-label<br/>verdict classifier]
-    E --> G[EthicsClassifier<br/>(trained model)]
-    F --> G
+    subgraph Training
+        A[Define ethics principles (IEEE + Harvard)] --> B[Create ~600 labeled scenarios]
+        B --> C[Label each scenario with principles + verdict]
+        C --> D[Vectorize text (TF-IDF)]
+        D --> E[Train multi-label principle classifier]
+        D --> F[Train single-label verdict classifier]
+        E --> G[EthicsClassifier (trained model)]
+        F --> G
+    end
 
-    %% INFERENCE / RUNTIME
-    H[User types a free-text<br/>AI / robotics scenario] --> I[Vectorize scenario<br/>with same TF-IDF]
-    I --> J[Predict principles<br/>and verdict]
-    J --> K{Verdict?}
-
-    K --> L[Show overall verdict:<br/>'ethical' or 'ambiguous']:::good
-    K --> M[Show overall verdict:<br/>'unethical' <br/>+ violated IEEE-style principles]:::bad
-
-    classDef good fill:#d5f5e3,stroke:#1e8449,stroke-width:1px;
-    classDef bad fill:#f9e0e0,stroke:#c0392b,stroke-width:1px;
-
-
-> In GitHub, you just keep the triple backticks; it’ll render as a neat diagram.
-
----
-
-### 3. If you want a slide version
-
-If you’re doing this in **PowerPoint** or **draw.io**, use these boxes:
-
-**Training side (left):**
-
-1. “Define ethics principles (IEEE + Harvard)”  
-2. “Create ~600 synthetic scenarios”  
-3. “Label each: principles + verdict”  
-4. “Vectorize text (TF-IDF)”  
-5. Two parallel boxes:
-   - “Train multi-label *principle* classifier”  
-   - “Train *verdict* classifier (ethical / ambiguous / unethical)”  
-6. “EthicsClassifier (trained model)”
-
-**Runtime side (right):**
-
-1. “User types scenario”  
-2. “Vectorize with TF-IDF”  
-3. “Predict principles + verdict”  
-4. Decision diamond: “Verdict?”  
-   - Arrow to: “Show verdict only (ethical / ambiguous)”  
-   - Arrow to: “Show verdict + violated IEEE-style principles (unethical)”
-
----
-
-If you want, next step I can:
-
-- tweak the wording on the boxes to sound *extra* academic, or  
-- write a tiny caption you can put under the flowchart in your report / README.
-::contentReference[oaicite:0]{index=0}
+    subgraph Inference
+        H[User types AI / robotics scenario] --> I[Vectorize scenario with TF-IDF]
+        I --> J[Predict principles and verdict]
+        J --> K{Verdict?}
+        K --> L[Show verdict only (ethical / ambiguous)]
+        K --> M[Show verdict + violated principles (unethical)]
+    end
