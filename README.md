@@ -30,3 +30,5 @@ flowchart TD
         K --> L[Show verdict only (ethical / ambiguous)]
         K --> M[Show verdict + violated principles (unethical)]
     end
+graph TD
+    A[Start] --> B[End]
