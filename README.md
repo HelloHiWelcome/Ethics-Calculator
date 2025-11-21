@@ -14,6 +14,7 @@ It is intended as a teaching / demonstration artifact for AI ethics, embedded et
 
 Running the script trains the classifier from scratch on the full labeled dataset and then drops the user into a simple CLI: you describe any AI or robotics scenario in plain language, and the system responds with its current best guess at the overall ethical verdict.
 
+```mermaid
 flowchart TD
   subgraph Training
     A["Define ethics principles (IEEE + Harvard)"] --> B["Create ~600 labeled scenarios"]
@@ -32,3 +33,4 @@ flowchart TD
     K --> L["Show verdict only (ethical / ambiguous)"]
     K --> M["Show verdict + violated principles (unethical)"]
   end
+```
