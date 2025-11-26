@@ -2,7 +2,7 @@ Ethics-Calculator
 
 This repository contains an experimental AI ethics scenario classifier that operationalizes high‑level normative principles into a concrete, working machine‑learning prototype. The system is designed to take a free‑form natural language description of an AI or robotics scenario and output a single overall ethical verdict: ethical, ambiguous, or unethical.
 
-Under the hood, the classifier is trained on a hand‑curated corpus of 600 labeled scenarios spanning domains such as healthcare, finance, education, policing, media recommendation, large language models, and autonomous systems. Each training example is annotated with:
+Under the hood, The training data consists of ~600 synthetic scenarios in which AI or robotic systems interact with human characters (patients, customers, voters, workers, students, etc.). Each scenario describes both the AI system and the humans affected by it, spanning domains such as healthcare, finance, education, policing, media recommendation, large language models, and autonomous systems. Each training example is annotated with:
 
 an overall verdict, and
 
