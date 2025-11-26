@@ -17,7 +17,7 @@ Running the script trains the classifier from scratch on the full labeled datase
 ```mermaid
 flowchart TD
   subgraph Training
-    A["Define ethics principles (IEEE + Harvard)"] --> B["Create ~600 labeled scenarios"]
+    A["Define ethics principles (IEEE + Harvard)"] --> B["Create ~600 labeled AI/robotics scenarios with human characters"]
     B --> C["Label each scenario with principles + verdict"]
     C --> D["Vectorize text (TF‑IDF)"]
     D --> E["Train multi‑label principle classifier"]
