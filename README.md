@@ -39,19 +39,19 @@ Running the script trains the classifier from scratch on the full labeled datase
 ```mermaid
 flowchart TD
   subgraph Training
-    A[Define ethics principles (IEEE + Harvard)] --> B[Create labeled AI/robotics and human scenarios]
-    B --> C[Annotate each scenario with principles and a verdict]
-    C --> D[Vectorize scenario text with TF-IDF]
-    D --> E[Train multi-label principle classifier]
-    D --> F[Train verdict classifier (ethical / ambiguous / unethical)]
-    E --> G[Combine into EthicsClassifier (trained model)]
+    A["Define ethics principles (IEEE + Harvard)"] --> B["Create labeled AI/robotics and human scenarios"]
+    B --> C["Annotate each scenario with principles and a verdict"]
+    C --> D["Vectorize scenario text with TF-IDF"]
+    D --> E["Train multi-label principle classifier"]
+    D --> F["Train verdict classifier (ethical / ambiguous / unethical)"]
+    E --> G["Combine into EthicsClassifier (trained model)"]
     F --> G
   end
 
   subgraph Inference
-    H[User types AI/robotics or human scenario] --> I[Vectorize scenario with TF-IDF]
-    I --> J[Predict principles and verdict probabilities]
-    J --> K[Bias away from 'ambiguous' unless model is uncertain]
-    K --> L[Select final verdict]
-    L --> M[Show verdict plus key IEEE-style principles involved]
+    H[User types AI/robotics or human scenario] --> I["Vectorize scenario with TF-IDF"]
+    I --> J["Predict principles and verdict probabilities"]
+    J --> K["Bias away from 'ambiguous' unless model is uncertain"]
+    K --> L["Select final verdict"]
+    L --> M["Show verdict plus key IEEE-style principles involved"]
   end
